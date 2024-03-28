@@ -197,32 +197,35 @@
 
                 <div id="toggle-details-area" style="display: none;">
                     <section class="row mb-32 mt-3">
-                        <div class="col-lg-8 offset-lg-2">
-                            <table class="table table-bordered table-striped table-hover" id="arti-details-table">
-                                <thead>
-                                    <tr>
-                                        <th class="text-center bg-primary text-white" colspan="5">
-                                            Artifact bonus (before considering stones)
-                                        </th>
-                                    </tr>
-                                    <tr>
-                                        <th>Artifact</th>
-                                        <th>Type</th>
-                                        <th>Slots</th>
-                                        <th>Laying</th>
-                                        <th>Shipping</th>
-                                    </tr>
-                                </thead>
-                                <tbody></tbody>
-                                <tfoot>
-                                    <tr>
-                                        <th colspan="2">Total</th>
-                                        <th class="slt text-end">-</th>
-                                        <th class="lay text-end">-</th>
-                                        <th class="shp text-end">-</th>
-                                    </tr>
-                                </tfoot>
-                            </table>
+                        <div class="col-lg-6 offset-lg-3">
+
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-striped table-hover table-sm" id="arti-details-table">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center bg-primary text-white" colspan="5">
+                                                Artifact bonus (before considering stones)
+                                            </th>
+                                        </tr>
+                                        <tr>
+                                            <th>Artifact</th>
+                                            <th>Type</th>
+                                            <th>Slots</th>
+                                            <th>Laying</th>
+                                            <th>Shipping</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <th colspan="2">Total</th>
+                                            <th class="slt text-end">-</th>
+                                            <th class="lay text-end">-</th>
+                                            <th class="shp text-end">-</th>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
 
                         </div>
                     </section>
@@ -231,19 +234,23 @@
 
                     <section class="row mb-32">
                         <div class="col-lg-10 offset-lg-1 border-top pt-3">
-                            <table class="table table-bordered table-striped table-hover mb-0" id="stone-details-table">
-                                <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Tachyon</th>
-                                        <th>Quantum</th>
-                                        <th>Laying before TD bonus</th>
-                                        <th>Laying</th>
-                                        <th>Shipping</th>
-                                    </tr>
-                                </thead>
-                                <tbody></tbody>
-                            </table>
+
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-striped table-hover table-sm mb-0" id="stone-details-table">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Tachyon</th>
+                                            <th>Quantum</th>
+                                            <th>Laying before TD bonus</th>
+                                            <th>Laying</th>
+                                            <th>Shipping</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+
                         </div>
                     </section>
 
@@ -253,7 +260,7 @@
         </div>
 
         <div class="modal fade" id="load-preset-modal" tabindex="-1" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
+            <div class="modal-dialog modal-xl">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h1 class="modal-title fs-5 text-primary">Load Artifact Preset</h1>
@@ -266,11 +273,13 @@
                                     <p class="text-center text-primary mb-0"><em>No preset found.</em></p>
                                 </div>
                                 <div class="body-item preset-data" style="display: none;">
-                                    <table class="table table-striped table-hover table-bordered" id="artil-preset-list-table">
-                                        <tbody>
 
-                                        </tbody>
-                                    </table>
+                                    <div class="table-responsive">
+                                        <table class="table table-striped table-hover table-bordered2 table-sm" id="artil-preset-list-table">
+                                            <tbody></tbody>
+                                        </table>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
@@ -310,30 +319,32 @@
                         <hr>
                         <div class="row">
                             <div class="col-lg-6 offset-lg-3">
-                                <table class="table table-bordered" id="save-preset-preview-table">
-                                    <tbody>
-                                        <tr class="arti-preview" data-id="arti-deflector">
-                                            <td>Tachyon deflector</td>
-                                            <td class="value text-primary text-center w-25"></td>
-                                        </tr>
-                                        <tr class="arti-preview" data-id="arti-metronome">
-                                            <td>Quantum metronome</td>
-                                            <td class="value text-primary text-center"></td>
-                                        </tr>
-                                        <tr class="arti-preview" data-id="arti-compass">
-                                            <td>Interstellar compass</td>
-                                            <td class="value text-primary text-center"></td>
-                                        </tr>
-                                        <tr class="arti-preview" data-id="arti-gusset">
-                                            <td>Gusset</td>
-                                            <td class="value text-primary text-center"></td>
-                                        </tr>
-                                        <tr class="td-bonus-preview" style="display: none;">
-                                            <td>Tachyon deflector bonus</td>
-                                            <td class="value text-primary text-center"></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-striped table-hover table-sm" id="save-preset-preview-table">
+                                        <tbody>
+                                            <tr class="arti-preview" data-id="arti-deflector">
+                                                <td>Tachyon deflector</td>
+                                                <td class="value text-primary text-center w-25"></td>
+                                            </tr>
+                                            <tr class="arti-preview" data-id="arti-metronome">
+                                                <td>Quantum metronome</td>
+                                                <td class="value text-primary text-center"></td>
+                                            </tr>
+                                            <tr class="arti-preview" data-id="arti-compass">
+                                                <td>Interstellar compass</td>
+                                                <td class="value text-primary text-center"></td>
+                                            </tr>
+                                            <tr class="arti-preview" data-id="arti-gusset">
+                                                <td>Gusset</td>
+                                                <td class="value text-primary text-center"></td>
+                                            </tr>
+                                            <tr class="td-bonus-preview" style="display: none;">
+                                                <td>Tachyon deflector bonus</td>
+                                                <td class="value text-primary text-center"></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
 
@@ -351,7 +362,7 @@
 
                     </div>
                 </div>
-                
+
             </div>
         </div>
 

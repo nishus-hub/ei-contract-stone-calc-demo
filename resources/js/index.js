@@ -253,7 +253,7 @@ const getFormattedDate = (timestamp) => {
 		date.getDate(),
 		date.toLocaleString('default', { month: 'short' }),
 		date.getFullYear(),
-		`${date.getHours()}:${date.getMinutes().toString().padStart(2, '0')}`
+		`${date.getHours().toString().padStart(2, '0')}:${date.getMinutes().toString().padStart(2, '0')}`
 	].join(' ');
 }
 
