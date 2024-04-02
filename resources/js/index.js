@@ -8,12 +8,18 @@ let slt, lay, shp, arti, map, maxIndex, max
 
 $(() => {
 	loadTheme()
-	loadValuesFromUrl()
+	loadSelection()
+	// loadValuesFromUrl()
 
 	calc()
 
-	$('.arti-select').change(() => {
-		calc()
+	// $('.arti-select').change(() => {
+	// 	calc()
+	// })
+
+	$('.arti-select').change(function() {
+	    saveSelection($(this))
+	    calc()
 	})
 
 	$('#td-bonus').on('input', () => {
@@ -51,6 +57,19 @@ $('#toggle-details').click(function(){
     localStorage.setItem('detailsState', currentState)
 })
 
+const saveSelection = el => {
+	localStorage.setItem(el.attr('id'), el.val())
+}
+
+const loadSelection = () => {
+	if(loadValuesFromUrl()) return
+
+	$('.arti-select').each(function() {
+		const option = localStorage.getItem($(this).attr('id'))
+		if(option) $(this).val(option)
+	})
+}
+
 const loadValuesFromUrl = () => {
 	let count = 0;
 	const urlParams = new URLSearchParams(window.location.search)
@@ -62,7 +81,7 @@ const loadValuesFromUrl = () => {
 		elInput.val(v)
 	})
 
-	if(!count) return
+	if(!count) return false
 
 	if(count === 5) {
 		iziToast.destroy()
@@ -78,7 +97,8 @@ const loadValuesFromUrl = () => {
 
     history.replaceState({}, '', window.location.pathname)
 
-    calc()
+    return true
+    // calc()
 	
 }
 
@@ -187,7 +207,7 @@ const toggleTheme = () => {
 	localStorage.setItem('theme', theme)
 }
 
-const setTheme = (theme) => {
+const setTheme = theme => {
 	const icons = {
 		light: '<i class="fa-solid fa-sun"></i>',
 		dark: '<i class="fa-solid fa-moon"></i>'
@@ -217,7 +237,7 @@ const toggleSaveTDBonusRow = () => {
 	}
 }
 
-const savePreset = (name) => {
+const savePreset = name => {
 	let presetData = JSON.parse(localStorage.getItem('arti-presets')) || []
 	let data = {
 		name: name,
@@ -246,7 +266,7 @@ const savePreset = (name) => {
 	// console.log(JSON.parse(localStorage.getItem('arti-presets')))
 }
 
-const getFormattedDate = (timestamp) => {
+const getFormattedDate = timestamp => {
 	const date = new Date(timestamp);
 
 	return [
@@ -257,7 +277,7 @@ const getFormattedDate = (timestamp) => {
 	].join(' ');
 }
 
-const loadPreset = (index) => {
+const loadPreset = index => {
 	let presetData = JSON.parse(localStorage.getItem('arti-presets')) || []
 	let data = presetData[index]
 
@@ -281,10 +301,10 @@ const loadPreset = (index) => {
 	    message: `Preset <strong>${data.name}</strong> loaded successfully`,
 	})
 
-	$('#load-preset-modal').modal('hide');
+	$('#load-preset-modal').modal('hide')
 }
 
-const deletePreset = (index) => {
+const deletePreset = index => {
 	let presetData = JSON.parse(localStorage.getItem('arti-presets')) || []
 	let current = presetData[index]
 	presetData.splice(index, 1)
